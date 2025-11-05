@@ -1,1 +1,14 @@
+using ClassLibrary3;
+namespace ConsoleApp25
 
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calvul calvul = new Calvul();
+            int result = calvul.Add(233, 444);
+            Console.WriteLine(result);
+        }
+    }
+}
