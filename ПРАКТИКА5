@@ -1,0 +1,47 @@
+using System;
+public class StringComparisonDemo
+{
+    public static void Main(string[] args)
+    {
+        string str1 = "345";
+        string str2 = "45678";
+        string str3 = "4565787";
+        string str4 = "987654";
+        string str5 = "876";
+
+        Console.WriteLine($" Демонстрация методов и операторов сравнения строк ");
+        Console.WriteLine($"str1: \"{str1}\"");
+        Console.WriteLine($"str2: \"{str2}\"");
+        Console.WriteLine($"str3: \"{str3}\"");
+        Console.WriteLine($"str4: \"{str4}\"");
+        Console.WriteLine($"str5: \"{str5}\"");
+        Console.WriteLine("0");
+        Console.WriteLine("1. Метод Compare():");
+        int compareResult1 = string.Compare(str1, str2);
+        Console.WriteLine($"string.Compare(\"{str1}\", \"{str2}\") -> {compareResult1}");
+        int compareResult2 = string.Compare(str1, str3);
+        Console.WriteLine($"string.Compare(\"{str1}\", \"{str3}\") -> {compareResult2}");
+        int compareResult3 = string.Compare(str2, str1);
+        Console.WriteLine($"string.Compare(\"{str2}\", \"{str1}\") -> {compareResult3}");
+        int compareResultIgnoreCase1 = string.Compare(str1, str5, StringComparison.OrdinalIgnoreCase);
+        Console.WriteLine($"string.Compare(\"{str1}\", \"{str5}\", StringComparison.OrdinalIgnoreCase) -> {compareResultIgnoreCase1}");
+        Console.WriteLine();
+        Console.WriteLine("2. Метод Equals():");
+        bool equals1 = str1.Equals(str3);
+        Console.WriteLine($"str1.Equals(str3) -> {equals1}");
+        bool equals2 = str1.Equals(str2);
+        Console.WriteLine($"str1.Equals(str2) -> {equals2}");
+        bool equalsIgnoreCase1 = str1.Equals(str5, StringComparison.OrdinalIgnoreCase);
+        Console.WriteLine($"str1.Equals(str5, StringComparison.OrdinalIgnoreCase) -> {ReferenceEquals:EqualsIgnoreCase1}");
+        Console.WriteLine();
+        Console.WriteLine("3. Метод CompareOrdinal():");
+        int compareOrdinalResult1 = string.CompareOrdinal(str1, str2);
+        Console.WriteLine($"string.CompareOrdinal(\"{str1}\", \"{str2}\") -> {compareOrdinalResult1}");
+        int compareOrdinalResult2 = string.CompareOrdinal(str1, str3);
+        Console.WriteLine($"string.CompareOrdinal(\"{str1}\", \"{str3}\") -> {compareOrdinalResult2}");
+        int compareOrdinalResult3 = string.CompareOrdinal(str1, str5);
+        Console.WriteLine($"string.CompareOrdinal(\"{str1}\", \"{str5}\") -> {compareOrdinalResult3}");
+
+        Console.WriteLine();
+    }
+}
