@@ -1,0 +1,35 @@
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        string dateString1 = "2023-10-12";
+        DateTime date1 = DateTime.Parse(dateString1);
+        Console.WriteLine($"Parsed date using Parse(): {date1}");
+        string dateString2 = "12/10/2023";
+        string format = "dd/MM/yyyy";
+        DateTime date2 = DateTime.ParseExact(dateString2, format, CultureInfo.InvariantCulture);
+        Console.WriteLine($"Parsed date using ParseExact(): {date2}");
+        string dateString3 = "2023-10-12";
+        if (DateTime.TryParse(dateString3, out DateTime date3))
+        {
+            Console.WriteLine($"Successfully parsed date using TryParse(): {date3}");
+        }
+        else
+        {
+            Console.WriteLine("Failed to parse date using TryParse().");
+        }
+        string dateString4 = "10-12-2023";
+        string format2 = "MM-dd-yyyy";
+        if (DateTime.TryParseExact(dateString4, format2, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date4))
+        {
+            Console.WriteLine($"Successfully parsed date using TryParseExact(): {date4}");
+        }
+        else
+        {
+            Console.WriteLine("Failed to parse date using TryParseExact().");
+        }
+    }
+}
