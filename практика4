@@ -1,0 +1,35 @@
+using System;
+namespace _45Практика46
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.Write("Введите первое число: ");
+                double num1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Введите второе число: ");
+                double num2 = Convert.ToDouble(Console.ReadLine());
+                double result = num1 / num2;
+                Console.WriteLine($"Результат деления: {result}");
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Ошибка: Деление на ноль невозможно.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Ошибка");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Произошла непредвиденная ошибка: {ex.Message}");
+            }
+            {
+                Console.WriteLine("Завершение работы программы.");
+            }
+        }
+    }
+}
