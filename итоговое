@@ -1,0 +1,63 @@
+using LibraryLib;
+using System;
+using System.Collections.Generic;
+
+namespace LibraryLib
+{
+    public class LibraryFunctions
+    {
+        private const string LibraryName = "Городская библиотека г. Чита";
+        private string chiefLibrarian = "Иванова Мария Петровна";
+        private List<string> staff = new List<string>
+        {
+            "Петров П.С.",
+            "Сидорова А.В.",
+            "Козлов И.Д.",
+            "Иванова М.П."
+        };
+
+        public string GetChiefLibrarian()
+        {
+            return chiefLibrarian;
+        }
+
+        public string GetLibraryName()
+        {
+            return LibraryName;
+        }
+
+        public void SetChiefLibrarian(string fullname)
+        {
+            if (staff.Contains(fullname))
+            {
+                chiefLibrarian = fullname;
+            }
+            else
+            {
+                throw new ArgumentException("ФИО не найдено в списке сотрудников.");
+            }
+        }
+
+        public string GenerateBookCode(string category, int number)
+        {
+            return $"{category}_{number}";
+        }
+
+        public List<string> GetStaff()
+        {
+            return new List<string>(staff);
+        }
+
+        public void AddStaff(string fullname)
+        {
+            if (!staff.Contains(fullname))
+            {
+                staff.Add(fullname);
+            }
+            else
+            {
+                throw new ArgumentException("Сотрудник уже существует.");
+            }
+        }
+    }
+}
