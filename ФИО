@@ -1,0 +1,44 @@
+using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите фамилию на русском языке:");
+        string russianSurname = Console.ReadLine();
+        string latinSurname = TranslitToLatin(russianSurname);
+        Console.WriteLine($"Фамилия на латинском: {latinSurname}");
+    }
+
+    static string TranslitToLatin(string input)
+    {
+        var translitDictionary = new Dictionary<char, string>
+        {
+            {'а', "a"}, {'б', "b"}, {'в', "v"}, {'г', "g"}, {'д', "d"}, {'е', "e"},
+            {'ё', "yo"}, {'ж', "zh"}, {'з', "z"}, {'и', "i"}, {'й', "y"}, {'к', "k"},
+            {'л', "l"}, {'м', "m"}, {'н', "n"}, {'о', "o"}, {'п', "p"}, {'р', "r"},
+            {'с', "s"}, {'т', "t"}, {'у', "u"}, {'ф', "f"}, {'х', "kh"}, {'ц', "ts"},
+            {'ч', "ch"}, {'ш', "sh"}, {'щ', "shch"}, {'ъ', ""}, {'ы', "y"}, {'ь', ""},
+            {'э', "e"}, {'ю', "yu"}, {'я', "ya"}
+        };
+
+        StringBuilder result = new StringBuilder();
+
+        foreach (char c in input.ToLower())
+        {
+            if (translitDictionary.TryGetValue(c, out string transliteratedChar))
+            {
+                result.Append(transliteratedChar);
+            }
+            else
+            {
+                result.Append(c); // добавляем символ, если он не найден в словаре
+            }
+        }
+
+        return result.ToString();
+    }
+}
